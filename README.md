@@ -1,4 +1,4 @@
-### Compiling on the Windows command-line
+### Compiling with Clang
 
 There isn't enough easily digestible information about `cl.exe`; the Windows compiler.
 
