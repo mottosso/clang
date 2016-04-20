@@ -10,8 +10,9 @@ Personal notebook for compiling with `clang`.
 
 **References**
 
-- [Compiler (`cl.exe`) Options][cl]
-- [Linker (`link.exe`) Options][link]
+- [Compiler (`clang`) Options][cl]
+- [Linker (`llvm-link`) Options][link]
+- [Archiver (`llvm-ar`) Options][ar]
 - [`objdump`](https://sourceware.org/binutils/docs/binutils/objdump.html)
 
 **Guides**
@@ -20,4 +21,4 @@ Personal notebook for compiling with `clang`.
 
 [cl]: http://llvm.org/releases/3.4/tools/clang/docs/UsersManual.html#command-line-options
 [link]: http://llvm.org/docs/CommandGuide/llvm-link.html
-[lib]: https://msdn.microsoft.com/en-us/library/0xb6w1f8.aspx
+[ar]: http://llvm.org/docs/CommandGuide/llvm-ar.html
