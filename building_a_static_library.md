@@ -61,57 +61,46 @@ int main(void)
 
 #### Compile
 
-Before compiling anything, you will need to setup your environment.
+**build-lib.sh**
 
-**term.bat**
-
-```bat
-set PATH=C:\Program Files (x86)\Microsoft Visual Studio 12.0\Common7\IDE;%PATH%
-call "c:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\vcvarsall.bat" x86
-cmd /K cls
-```
-
-> Exchange `12.0` with `14.0` for Visual Studio 2015.
-
-**build-lib.bat**
-
-This will output `build/lib.lib`.
+This will output `lib/lib.lib`.
 
 ```bat
-@echo off
+#!/usr/bin/env bash
+
+mkdir -p build
 pushd build
 
-cl^
-  -Zi^
-  -EHsc^
-  -I "..\include"^
-  -c^
-  ..\src\lib.cpp &&^
-lib^
-  lib.obj
+clang++ \
+	-c \
+	-Wall \
+	-o lib.o \
+	-I ../include \
+	../src/lib.cpp && \
+
+llvm-ar \
+	rc ../lib/lib.a \
+	lib.o
 
 popd
 ```
 
-**build.bat**
+**build.sh**
 
-This will use `build/lib.lib` to compile a console application.
-
-Notice the similarities between compilation, and differing second command; from `lib.exe` to `link.exe`.
+This will use `lib/lib.lib` to compile a console application.
 
 ```bat
-@echo off
+#!/usr/bin/env bash
+
+mkdir -p build
 pushd build
 
-cl^
-  -Zi^
-  -EHsc^
-  -I "..\include"^
-  -c^
-  ..\src\main.cpp &&^
-link main.obj^
-  lib.lib^
-  /LIBPATH:"..\build"
+clang++ \
+	-Wall \
+	-o main \
+	-I ../include \
+	../src/main.cpp \
+	../lib/lib.a
 
 popd
 ```
@@ -125,7 +114,7 @@ popd
 Now that you are done, you can run your program.
 
 ```bat
-> build\main.exe
+$ build\main
 Hello World!
 ```
 
@@ -138,7 +127,7 @@ This program is:
 You will note that if you excluded `lib.lib` from your `build.bat` script, an error is thrown.
 
 ```bat
-main.obj : error LNK2019: unresolved external symbol "void __cdecl mynamespace::hello
-World(void)" (?helloWorld@mynamespace@@YAXXZ) referenced in function _main
-main.exe : fatal error LNK1120: 1 unresolved externals
+/tmp/main-05a698.o: In function `main':
+../src/main.cpp:(.text+0x10): undefined reference to `mynamespace::helloWorld()'
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
 ```
