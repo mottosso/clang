@@ -1,4 +1,4 @@
-### Building a library
+### Building a Static Library
 
 Starting from the bottom up, we'll build a library and then use that library in the next example.
 
