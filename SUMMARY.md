@@ -6,5 +6,5 @@
    * [Building a Dynamic Library](building_a_dynamic_library.md)
 * TOOLS
    * clang
-   * ar
+   * llvm-ar
 
