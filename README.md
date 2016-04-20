@@ -1,25 +1,23 @@
 ### Compiling with Clang
 
-There isn't enough easily digestible information about `cl.exe`; the Windows compiler.
+Personal notebook for compiling with `clang`.
 
 **Assumptions**
 
-- You are on Windows 8.1
-- You are using `cmd.exe`
-- You have Visual Studio 2013 or later
+- You are using clang 3.4 or higher
+- You are using `bash`
 - You write code in your favorite text editor.
 
 **References**
 
 - [Compiler (`cl.exe`) Options][cl]
 - [Linker (`link.exe`) Options][link]
-- [Library (`lib.exe`) Options][lib]
-- [`dumpbin.exe`](https://support.microsoft.com/en-us/kb/177429)
+- [`objdump`](https://sourceware.org/binutils/docs/binutils/objdump.html)
 
 **Guides**
 
 - [Beginner's Guide to Linkers](http://www.lurklurk.org/linkers/linkers.html)
 
-[cl]: https://msdn.microsoft.com/en-us/library/19z1t1wy(v=vs.120).aspx
-[link]: https://msdn.microsoft.com/en-us/library/y0zzbyt4.aspx
+[cl]: http://llvm.org/releases/3.4/tools/clang/docs/UsersManual.html#command-line-options
+[link]: http://llvm.org/docs/CommandGuide/llvm-link.html
 [lib]: https://msdn.microsoft.com/en-us/library/0xb6w1f8.aspx
