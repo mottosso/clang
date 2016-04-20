@@ -7,5 +7,5 @@
 * TOOLS
    * clang
    * llvm-ar
-   * llvm-link
+   * [llvm-link](llvm-link.md)
 
